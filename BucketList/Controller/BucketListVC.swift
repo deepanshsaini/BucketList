@@ -29,12 +29,16 @@ class BucketListVC: UIViewController {
     
     @IBAction func addBtnPressed(_ sender: UIButton){
         guard itemName.text != nil else { return }
-        //New element is appended to array each time add button is pressed
-        itemArray.append(itemName.text!)
-        itemName.text = ""
-        //New date us appended to array each time add button is pressed
-        dateArray.append(dateTime())
-        tableView.reloadData()
+        if itemName.text != "" {
+            //New element is appended to array each time add button is pressed
+            itemArray.append(itemName.text!)
+            itemName.text = ""
+            //New date us appended to array each time add button is pressed
+            dateArray.append(dateTime())
+            tableView.reloadData()
+        }else{
+            return
+        }
     }
 
 }
