@@ -27,29 +27,45 @@
                                 <rect key="frame" x="20" y="149" width="374" height="703"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="47" id="ceX-YW-vWL" customClass="ItemCell" customModule="BucketList" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="374" height="47"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="69" id="ceX-YW-vWL" customClass="ItemCell" customModule="BucketList" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="374" height="69"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ceX-YW-vWL" id="sCo-bf-7z2">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="47"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="69"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Item Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AlX-0N-OgO">
-                                                    <rect key="frame" x="10" y="10" width="354" height="27"/>
+                                                    <rect key="frame" x="10" y="10" width="354" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="20" id="Q7W-3u-ZRC"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n34-jA-71Y">
+                                                    <rect key="frame" x="10" y="40" width="354" height="19"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="20" id="U2a-QK-zT1"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="AlX-0N-OgO" secondAttribute="bottom" constant="10" id="2fu-HH-kvd"/>
+                                                <constraint firstItem="n34-jA-71Y" firstAttribute="top" secondItem="AlX-0N-OgO" secondAttribute="bottom" constant="10" id="F6w-yq-3qc"/>
+                                                <constraint firstAttribute="trailing" secondItem="n34-jA-71Y" secondAttribute="trailing" constant="10" id="RTy-dl-l4H"/>
                                                 <constraint firstItem="AlX-0N-OgO" firstAttribute="top" secondItem="sCo-bf-7z2" secondAttribute="top" constant="10" id="U3l-nz-ezH"/>
+                                                <constraint firstItem="n34-jA-71Y" firstAttribute="leading" secondItem="sCo-bf-7z2" secondAttribute="leading" constant="10" id="mTM-FB-iLV"/>
+                                                <constraint firstAttribute="bottom" secondItem="n34-jA-71Y" secondAttribute="bottom" constant="10" id="qka-bb-gmv"/>
                                                 <constraint firstItem="AlX-0N-OgO" firstAttribute="leading" secondItem="sCo-bf-7z2" secondAttribute="leading" constant="10" id="v5k-N5-XaZ"/>
                                                 <constraint firstAttribute="trailing" secondItem="AlX-0N-OgO" secondAttribute="trailing" constant="10" id="wxX-03-aoM"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="itemName" destination="AlX-0N-OgO" id="UWI-Dt-Vdt"/>
+                                            <outlet property="dateTime" destination="n34-jA-71Y" id="eFI-NE-TJk"/>
+                                            <outlet property="itemName" destination="AlX-0N-OgO" id="AJ1-R5-h6D"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

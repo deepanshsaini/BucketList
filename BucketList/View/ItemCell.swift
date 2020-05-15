@@ -11,7 +11,7 @@ import UIKit
 class ItemCell: UITableViewCell {
 
     @IBOutlet weak var itemName : UILabel!
-    
+    @IBOutlet weak var dateTime : UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

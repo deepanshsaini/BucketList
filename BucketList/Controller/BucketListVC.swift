@@ -41,6 +41,7 @@ extension BucketListVC : UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ItemCell
         cell.itemName?.text = emptyArray[indexPath.row]
+        cell.dateTime?.text = dateTime()
         return cell
     }
     
