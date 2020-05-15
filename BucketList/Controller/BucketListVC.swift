@@ -10,10 +10,13 @@ import UIKit
 
 class BucketListVC: UIViewController {
 
+    //Outlets
     @IBOutlet weak var itemName : UITextField!
     @IBOutlet weak var tableView : UITableView!
-        
+    
+    //Array to store Items
     var itemArray : [String] = []
+    //Array to store Date
     var dateArray : [String] = []
     
     override func viewDidLoad() {
@@ -26,8 +29,10 @@ class BucketListVC: UIViewController {
     
     @IBAction func addBtnPressed(_ sender: UIButton){
         guard itemName.text != nil else { return }
+        //New element is appended to array each time add button is pressed
         itemArray.append(itemName.text!)
         itemName.text = ""
+        //New date us appended to array each time add button is pressed
         dateArray.append(dateTime())
         tableView.reloadData()
     }
@@ -53,6 +58,7 @@ extension BucketListVC : UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         self.itemArray.remove(at: indexPath.row)
+        self.dateArray.remove(at: indexPath.row)
         tableView.beginUpdates()
         self.tableView.deleteRows(at: [indexPath], with: .automatic)
         tableView.endUpdates()
