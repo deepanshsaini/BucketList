@@ -13,7 +13,8 @@ class BucketListVC: UIViewController {
     @IBOutlet weak var itemName : UITextField!
     @IBOutlet weak var tableView : UITableView!
         
-    var emptyArray : [String] = []
+    var itemArray : [String] = []
+    var dateArray : [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,8 +26,9 @@ class BucketListVC: UIViewController {
     
     @IBAction func addBtnPressed(_ sender: UIButton){
         guard itemName.text != nil else { return }
-        emptyArray.append(itemName.text!)
+        itemArray.append(itemName.text!)
         itemName.text = ""
+        dateArray.append(dateTime())
         tableView.reloadData()
     }
 
@@ -35,13 +37,13 @@ class BucketListVC: UIViewController {
 extension BucketListVC : UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return emptyArray.count
+        return itemArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ItemCell
-        cell.itemName?.text = emptyArray[indexPath.row]
-        cell.dateTime?.text = dateTime()
+        cell.itemName?.text = itemArray[indexPath.row]
+        cell.dateTime?.text = dateArray[indexPath.row]
         return cell
     }
     
@@ -50,7 +52,7 @@ extension BucketListVC : UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        self.emptyArray.remove(at: indexPath.row)
+        self.itemArray.remove(at: indexPath.row)
         tableView.beginUpdates()
         self.tableView.deleteRows(at: [indexPath], with: .automatic)
         tableView.endUpdates()
