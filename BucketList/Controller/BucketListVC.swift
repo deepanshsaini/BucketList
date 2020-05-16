@@ -46,7 +46,7 @@ class BucketListVC: UIViewController {
     }
     
     @IBAction func letMeDecideBtnPressed(_ sender : UIButton){
-        if itemArray.count >= 0{
+        if itemArray.count >= 1{
             
             //Getting a random item from Array
             let randomElement = itemArray.randomElement()!
@@ -55,6 +55,9 @@ class BucketListVC: UIViewController {
             let alert = UIAlertController(title: "Go for", message: "\(randomElement)", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
             self.present(alert, animated: true, completion: nil)
+        }
+        else {
+            return
         }
     }
 
