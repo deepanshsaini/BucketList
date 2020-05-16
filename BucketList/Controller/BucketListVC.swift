@@ -25,18 +25,36 @@ class BucketListVC: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorStyle = .none
+        tableView.layer.cornerRadius = 5.0
     }
     
     @IBAction func addBtnPressed(_ sender: UIButton){
         if itemName.text != "" {
+            
             //New element is appended to array each time add button is pressed
             itemArray.append(itemName.text!)
             itemName.text = ""
+            
             //New date us appended to array each time add button is pressed
             dateArray.append(dateTime())
+            
+            //Table View reloads data
             tableView.reloadData()
         }else{
             return
+        }
+    }
+    
+    @IBAction func letMeDecideBtnPressed(_ sender : UIButton){
+        if itemArray.count >= 0{
+            
+            //Getting a random item from Array
+            let randomElement = itemArray.randomElement()!
+            
+            //Alert for selected random item from Array
+            let alert = UIAlertController(title: "Go for", message: "\(randomElement)", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            self.present(alert, animated: true, completion: nil)
         }
     }
 
