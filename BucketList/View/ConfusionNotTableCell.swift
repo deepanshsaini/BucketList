@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ItemCell: UITableViewCell {
+class ConfusionNotTableCell: UITableViewCell {
 
     @IBOutlet weak var itemName : UILabel!
     @IBOutlet weak var dateTime : UILabel!

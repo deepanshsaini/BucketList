@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BucketListVC: UIViewController {
+class ConfusionNotVC: UIViewController {
 
     //Outlets
     @IBOutlet weak var itemName : UITextField!
@@ -63,14 +63,14 @@ class BucketListVC: UIViewController {
 
 }
 
-extension BucketListVC : UITableViewDelegate, UITableViewDataSource{
+extension ConfusionNotVC : UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return itemArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ItemCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ConfusionNotTableCell
         cell.itemName?.text = itemArray[indexPath.row]
         cell.dateTime?.text = dateArray[indexPath.row]
         return cell
