@@ -40,6 +40,7 @@ class ConfusionNotVC: UIViewController {
             
             //Table View reloads data
             tableView.reloadData()
+            
         }else{
             return
         }
