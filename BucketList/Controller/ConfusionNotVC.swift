@@ -34,9 +34,13 @@ class ConfusionNotVC: UIViewController {
             //New element is appended to array each time add button is pressed
             itemArray.append(itemName.text!)
             itemName.text = ""
+            print(itemArray)
             
             //New date us appended to array each time add button is pressed
             dateArray.append(dateTime())
+            print(dateArray)
+            
+           // createData(itemsArray: itemArray , timeArray: dateArray)
             
             //Table View reloads data
             tableView.reloadData()
@@ -47,6 +51,8 @@ class ConfusionNotVC: UIViewController {
     }
     
     @IBAction func letMeDecideBtnPressed(_ sender : UIButton){
+        
+       // retrieveData()
         if itemArray.count >= 1{
             
             //Getting a random item from Array
